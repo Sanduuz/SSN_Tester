@@ -4,8 +4,73 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Finnish SSN Tester Tool</title>
+	<script src="ssns.js"></script>
 </head>
 <body>
-	<p>Site is still under construction!</p>
+	<h3>Check SSN Validity</h3>
+	<label for="dob_checkvalidity">Date of Birth (DDMMYY):</label>
+	<input type="number" id="dob_checkvalidity" placeholder="Date of Birth (DDMMYY)"><br />
+
+	<label for="identity_checkvalidity">Identity number (2-899):</label>
+	<input type="number" id="identity_checkvalidity" placeholder="Identity number (2-899)" min="2" max="900"><br />
+
+	<label for="checksum_checkvalidity">Checksum:</label>
+	<input type="text" id="checksum_checkvalidity" placeholder="Checksum" maxlength="1"><br />
+
+	<input type="button" id="check" value="Check!" onclick="return checkSSN()">
+
+	<p id="SSN_CheckValidity">Result: </p>
+
+	<hr />
+
+	<h3>Calculate Checksum</h3>
+
+	<label for="dob_calcchecksum">Date of Birth (DDMMYY):</label>
+	<input type="number" id="dob_calcchecksum" placeholder="Date of Birth (DDMMYY)"><br />
+
+	<label for="identity_calcchecksum">Identity number (2-899):</label>
+	<input type="number" id="identity_calcchecksum" placeholder="Identity number (2-899)" min="2" max="900"><br />
+
+	<input type="button" id="checksum" value="Calculate Checksum" onclick="return getChecksum()">
+
+	<p id="SSN_CalcChecksum">Result: </p>
+
+	<hr />
+
+	<h3>Bruteforce Valid Identity Numbers</h3>
+
+	<label for="dob_bruteidentity">Date of Birth (DDMMYY):</label>
+	<input type="number" id="dob_bruteidentity" placeholder="Date of Birth (DDMMYY)"><br />
+
+	<label for="checksum_bruteidentity">Checksum:</label>
+	<input type="text" id="checksum_bruteidentity" placeholder="Checksum" maxlength="1"><br />
+
+	<label for="sex_bruteidentity">Sex (optional, limits results):</label>
+	<select id="sex_bruteidentity">
+		<option value=""></option>
+		<option value="M">Male</option>
+		<option value="F">Female</option>
+	</select><br />
+
+	<input type="button" id="brute_identities" value="Bruteforce Valid Identity Numbers" onclick="return bruteIdentity()">
+
+	<p id="SSN_BruteIdentity">Result(s): </p>
+
+	<hr />
+
+	<h3>Bruteforce Valid Date of Births</h3>
+
+	<label for="year_brutedobs">Birth year (YYYY):</label>
+	<input type="number" id="year_brutedobs" placeholder="Birth year (YYYY)"><br />
+
+	<label for="identity_brutedobs">Identity number (2-899):</label>
+	<input type="number" id="identity_brutedobs" placeholder="Identity number (2-899)" min="2" max="900"><br />
+
+	<label for="checksum_brutedobs">Checksum:</label>
+	<input type="text" id="checksum_brutedobs" placeholder="Checksum" maxlength="1"><br />
+
+	<input type="button" id="brute_dobs" value="Bruteforce Valid Date of Births" onclick="return bruteDobs()">
+
+	<p id="SSN_BruteDobs">Result(s): </p>
 </body>
 </html>
